@@ -1,0 +1,30 @@
+﻿@model Mosh.ViewsModels.RandomMovieViewModel
+
+
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var ClassName = Model.Customers.Count > 0 ? "popular" : null;
+}
+
+<h2 class="@ClassName">@Model.Movie.Name</h2>
+
+
+
+@if (Model.Customers.Count == 0)
+{
+    <text>This Movie has no customer</text> 
+}
+else
+{
+<ul>
+    @foreach(var customer in Model.Customers)
+    {
+        <li> @customer.Name </li>
+    }
+
+</ul>
+}
